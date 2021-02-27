@@ -1,0 +1,29 @@
+\documentclass{article}
+
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage[nameinlink,capitalise]{cleveref}
+\usepackage[shortcuts,abbreviations,automake]{glossaries-extra}
+\input{abbrev}
+\makeglossaries
+
+\title{Cartesian closed categories and the price of eggs}
+\author{Jane Doe}
+\date{September 1994}
+\begin{document}
+   \maketitle
+   Hello world!
+
+We present breakdown time data for various research activities in \cref{tab:breakdown}.
+\input{tables/breakdown}
+
+An example of an equation is Fick's second law (\cref{eq:fick-second}).
+\input{equations/fick-second}
+
+Once we've defined abbreviations in \texttt{abbrev.tex}, we can call those abbreviations using the \texttt{gls} command. In the case of ``machine learning'', the first usage of \texttt{gls} will give the full form as in \gls{ml}. The next usage of \texttt{gls} will give the abbreviated version as in \gls{ml}.
+
+\printglossaries
+
+\end{document}
+
