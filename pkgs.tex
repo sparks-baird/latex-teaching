@@ -1,0 +1,70 @@
+%% PACKAGES
+\usepackage[margin=1.5cm,includefoot]{geometry}
+\usepackage{setspace}
+
+% uploading packages
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{textcomp} % https://latex.org/forum/viewtopic.php?f=4&t=3364#p13124, https://tex.stackexchange.com/questions/165115
+\usepackage{gensymb}
+\usepackage{lineno}
+\usepackage{mathtools}
+\usepackage[title]{appendix}
+\usepackage[separate-uncertainty=true]{siunitx}
+% \usepackage{xr-hyper} %needs to  be before hyperref
+\usepackage[colorlinks]{hyperref}
+\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref} %allow URLs to break across lines
+\usepackage[nameinlink,capitalise]{cleveref} %needs to appear after hyperref, https://tex.stackexchange.com/questions/396728/my-equations-referencing-not-working
+\Crefname{figure}{Figure}{Figures} %needs to appear after hyperref and cleveref
+\crefname{appsec}{Appendix}{Appendices}
+\newcommand\crefrangeconjunction{--} % modify the reference style
+\usepackage{mathrsfs}
+\usepackage{chemformula} %alternative: \usepackage{mhchem}, both for chemical formulas
+\usepackage{url}
+\usepackage{enumitem}
+\usepackage{tabulary}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{multirow}
+\usepackage{makecell} % https://tex.stackexchange.com/questions/2441/how-to-add-a-forced-line-break-inside-a-table-cell
+\graphicspath{{figures/}} %Setting the graphicspath
+% ---------to deal with the double quotes----------- 
+\usepackage [english]{babel}
+\usepackage [autostyle, english = american]{csquotes}
+\MakeOuterQuote{"}
+%alternatively can use `` '' format for double quotes
+\usepackage{matlab-prettifier}
+\newcommand{\matlab}[1]{\mbox{\lstinline[style=Matlab-editor]{#1}}}
+\usepackage{booktabs}
+\setlength{\abovetopsep}{1ex}
+\usepackage[shortcuts,abbreviations,automake]{glossaries-extra}
+
+\usepackage{nameref,zref-xr}
+\zxrsetup{toltxlabel}
+
+% remove the "Preprint submitted to Elsevier" footer on the first page
+\makeatletter
+\def\ps@pprintTitle{%
+   \let\@oddhead\@empty
+   \let\@evenhead\@empty
+   \def\@oddfoot{\reset@font\hfil\thepage\hfil}
+   \let\@evenfoot\@oddfoot
+}
+\makeatother
+
+%% Cross referencing with the xr package in Overleaf (https://www.overleaf.com/learn/how-to/Cross_referencing_with_the_xr_package_in_Overleaf)
+\makeatletter
+\newcommand*{\addFileDependency}[1]{% argument=file name and extension
+  \typeout{(#1)}
+  \@addtofilelist{#1}
+  \IfFileExists{#1}{}{\typeout{No file #1.}}
+}
+\makeatother
+\newcommand*{\myexternaldocument}[1]{%
+    \externaldocument{#1}%
+    \addFileDependency{#1.tex}%
+    \addFileDependency{#1.aux}%
+}
+
+\glssetcategoryattribute{abbreviation}{indexonlyfirst}{true}
+\glssetcategoryattribute{abbreviation}{nohyper}{true}

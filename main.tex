@@ -1,14 +1,7 @@
 % \documentclass{article}
 \documentclass[preprint,12pt]{elsarticle}
 
-\usepackage[margin=1.5cm,includefoot]{geometry}
-\usepackage{setspace}
-
-\usepackage{booktabs}
-\usepackage[colorlinks]{hyperref}
-\usepackage{amsmath}
-\usepackage[nameinlink,capitalise]{cleveref}
-\usepackage[shortcuts,abbreviations,automake]{glossaries-extra}
+\input{pkgs}
 \input{abbrev}
 \makeglossaries
 
@@ -39,9 +32,9 @@ Typesetting equations in Mathematica can be very effective. Here is an example o
 
 \resizebox{.9\hsize}{!}{\input{equations/crabnet-teaching}}
 
-Figures and captions can be generated programmatically. For example:
+Figures and captions can be generated programmatically. See \cref{} for example :
 
-
+\input{figures/parity-test}
 
 \printglossaries
 
