@@ -1,12 +1,20 @@
-\documentclass{article}
+% \documentclass{article}
+\documentclass[preprint,12pt]{elsarticle}
+
+\usepackage[margin=1.5cm,includefoot]{geometry}
+\usepackage{setspace}
 
 \usepackage{booktabs}
-\usepackage{hyperref}
+\usepackage[colorlinks]{hyperref}
 \usepackage{amsmath}
 \usepackage[nameinlink,capitalise]{cleveref}
 \usepackage[shortcuts,abbreviations,automake]{glossaries-extra}
 \input{abbrev}
 \makeglossaries
+
+%Import the natbib package and sets a bibliography  and citation styles
+% \usepackage{natbib}
+%https://www.overleaf.com/learn/latex/natbib_citation_styles
 
 \title{Cartesian closed categories and the price of eggs}
 \author{Jane Doe}
@@ -23,7 +31,22 @@ An example of an equation is Fick's second law (\cref{eq:fick-second}).
 
 Once we've defined abbreviations in \texttt{abbrev.tex}, we can call those abbreviations using the \texttt{gls} command. In the case of ``machine learning'', the first usage of \texttt{gls} will give the full form as in \gls{ml}. The next usage of \texttt{gls} will give the abbreviated version as in \gls{ml}.
 
+After we've included the bibliography file in the \texttt{bibliography} command, we can start citing articles using the \texttt{natbib} \texttt{cite} and \texttt{citet} commands, as in the following example:
+
+\citet{wangMachineLearningMaterials2020a} emphasized the need for reproducible methods and benchmarking. Another work further emphasized the importance of these topics \cite{barnardBestPracticeLeads2020}.
+
+Typesetting equations in Mathematica can be very effective. Here is an example of a teaching figure: \\ %For example, we have the following equation which demonstrates a possible representation of a crystal structure using Gaussian encodings of distances, angles, areas, and volumes defined by the crystal's atomic positions: \\
+
+\resizebox{.9\hsize}{!}{\input{equations/crabnet-teaching}}
+
+Figures and captions can be generated programmatically. For example:
+
+
+
 \printglossaries
+
+\bibliographystyle{elsarticle-num-names}
+\bibliography{auto-paper}
 
 \end{document}
 
